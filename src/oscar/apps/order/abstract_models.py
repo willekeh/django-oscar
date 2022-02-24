@@ -624,9 +624,9 @@ class AbstractLine(models.Model):
         for attribute in self.attributes.all():
             value = attribute.value
             if isinstance(value, list):
-                ops.append("%s ='%s'" % (attribute.type, (", ".join(value))))
+                ops.append("%s = '%s'" % (attribute.type, (", ".join(value))))
             else:
-                ops.append("%s ='%s'" % (attribute.type, value))
+                ops.append("%s = '%s'" % (attribute.type, value))
         if ops:
             desc = "%s (%s)" % (desc, ", ".join(ops))
         return desc
